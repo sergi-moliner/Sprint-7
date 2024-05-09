@@ -1,15 +1,17 @@
 <div class="starships-list" #content>
-  @if(starshipsResult$ | async; as resultObject){
-    <ul class="starship-list">
-      @for(item of resultObject.results; track item.name){
-        <li class="starship-list-item">
+    <ng-container *ngIf="starshipsResult$ | async as resultObject">
+      <ul class="starship-list">
+        <li class="starship-list-item" *ngFor="let item of resultObject.results; trackBy: trackByFn">
           <app-starship-info [starshipInfo]="item"/>
         </li>
-      }
-    </ul>
-  }
+      </ul>
+    </ng-container>
+<div class="d-flex justify-content-center my-3">
+  <button *ngIf="showButton" class="btn btn-load" (click)="loadMore()" >LOAD MORE</button>
+</div>
 
-  @if(errorMessage){
+  <p *ngIf="loading">Loading more...</p>
+  <div *ngIf="errorMessage">
     <app-error-message [errorMessage]="errorMessage"/>
-  }
+  </div>
 </div>
