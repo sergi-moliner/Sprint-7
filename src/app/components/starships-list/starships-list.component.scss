@@ -28,6 +28,11 @@
   color: white;
 }
 
+.custom-link{
+  color: inherit;
+  text-decoration: none;
+}
+
 @media screen and (max-width: 992px){
   .starship-list-item{
     width: 700px;

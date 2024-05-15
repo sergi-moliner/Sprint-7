@@ -1,0 +1,20 @@
+<div class="starships-list d-flex align-items-center justify-content-center mt-5" #content>
+  <ng-container *ngIf="starshipsResult$ | async as resultObject">
+    <ul class="starship-list">
+      <li class="starship-list-item" *ngFor="let item of resultObject.results; trackBy: trackByFn">
+        <a [routerLink]="['/starship', extractId(item.url) ]" class="custom-link">
+            <p class="text-uppercase fw-bold ps-3 mt-2">{{item.name}}</p>
+            <p class="ps-3">{{item.model}}</p>
+        </a>
+      </li>
+    </ul>
+  </ng-container>
+  <div class="d-flex justify-content-center my-3">
+    <button *ngIf="showButton" class="btn btn-load" (click)="loadMore()">VIEW MORE</button>
+  </div>
+
+  <p *ngIf="loading">Loading more...</p>
+  <div *ngIf="errorMessage">
+    <app-error-message [errorMessage]="errorMessage"/>
+  </div>
+</div>

@@ -13,7 +13,4 @@ export const errorHandlerInterceptor: HttpInterceptorFn = (req, next) => {
 
     return throwError(() => errorMessage);
   }))
-
-
-
 };

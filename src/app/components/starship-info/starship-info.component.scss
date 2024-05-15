@@ -1,0 +1,9 @@
+$text-color: rgb(168, 168, 168);
+$border-color: rgb(128, 128, 128);
+
+.custom-div {
+  justify-content: start;
+  align-items: center;
+  border-top: 1px solid $border-color;
+  border-bottom: 1px solid $border-color;
+}

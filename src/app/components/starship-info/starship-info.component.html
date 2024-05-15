@@ -1,0 +1,27 @@
+<div class="container-fluid">
+  <div class="custom-div">
+    <h4>STARSHIP</h4>
+  </div>
+  @if(starship$ | async; as starship){
+  <h2>{{ starship.name.toUpperCase() }}</h2>
+  <img [src]="imgURL" alt="{{starship.name}}" class="img-fluid" (error)="imageError()">
+  <li class="ps-3">{{starship.model}}</li>
+    <li class="ps-3">{{starship.manufacturer}}</li>
+    <li class="ps-3">{{starship.cost_in_credits}}</li>
+    <li class="ps-3">{{starship.length}}</li>
+    <li class="ps-3">{{starship.max_atmosphering_speed}}</li>
+    <li class="ps-3">{{starship.crew}}</li>
+    <li class="ps-3">{{starship.passengers}}</li>
+    <li class="ps-3">{{starship.cargo_capacity}}</li>
+    <li class="ps-3">{{starship.consumables}}</li>
+    <li class="ps-3">{{starship.hyperdrive_rating}}</li>
+    <li class="ps-3">{{starship.MGLT}}</li>
+    <li class="ps-3">{{starship.starship_class}}</li>
+    <li class="ps-3">{{starship.created}}</li>
+    <li class="ps-3">{{starship.edited}}</li>
+    <li class="ps-3">{{starship.url}}</li>
+
+  }
+</div>
+
+

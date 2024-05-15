@@ -1,4 +1,3 @@
-
 <div class="container-fluid">
   <nav class="navbar navbar-expand-lg custom-navbar">
     <div class="row d-flex justify-content-center align-items-center">
@@ -12,12 +11,13 @@
   </nav>
   <div class="d-flex align-items-center justify-content-center custom-div">
     <a class="nav-link link-a" href="#">HOME</a>
-    <a class="nav-link link-b" href="#">STARSHIPS</a>
+    <a class="nav-link link-b" [routerLink]="['/starships']">STARSHIPS</a>
   </div>
-  <div class="d-flex align-items-center justify-content-center mt-5">
-    <app-starships-list></app-starships-list>
+  <div>
+    <router-outlet></router-outlet>
   </div>
 </div>
+
 
 
 

@@ -1,17 +1,19 @@
-import { Component, OnInit, ViewChild, ElementRef } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { AsyncPipe, CommonModule } from '@angular/common';
 import { StarshipsService } from '../services/starships.service';
-import { Observable, EMPTY, catchError, finalize, fromEvent, concatMap } from 'rxjs';
-import { StarshipResults } from '../core/interfaces/starship';
+import { EMPTY, catchError, finalize, BehaviorSubject } from 'rxjs';
+import { StarshipResults } from '../../core/interfaces/starship';
 import { StarshipInfoComponent } from '../starship-info/starship-info.component';
 import { ErrorMessageComponent } from '../error-message/error-message.component';
 import { InfiniteScrollModule } from 'ngx-infinite-scroll';
-import { BehaviorSubject } from 'rxjs';
+import { StarshipDetailComponent } from '../starship-detail/starship-detail.component';
+import { RouterModule, RouterLink } from '@angular/router';
+import { Starship } from '../../core/interfaces/starship';
 
 @Component({
   selector: 'app-starships-list',
   standalone: true,
-  imports: [AsyncPipe, StarshipInfoComponent, ErrorMessageComponent, InfiniteScrollModule, CommonModule],
+  imports: [AsyncPipe, RouterModule, RouterLink, StarshipInfoComponent, ErrorMessageComponent, InfiniteScrollModule, CommonModule, StarshipDetailComponent],
   templateUrl: './starships-list.component.html',
   styleUrl: './starships-list.component.scss'
 })
@@ -20,10 +22,10 @@ export class StarshipsListComponent implements OnInit {
   public errorMessage!: string;
   public currentPage: number = 1;
   public loading: boolean = false;
+  public starshipArray: string[] = [];
   public starshipInfo: StarshipResults | undefined;
   showButton: boolean = true;
-
-  @ViewChild('content') content!: ElementRef;
+  selectedStarship: Starship = {} as Starship;
 
   constructor(private starshipsService: StarshipsService) { }
 
@@ -64,5 +66,10 @@ export class StarshipsListComponent implements OnInit {
 
   trackByFn(index: number, item: any): number {
     return item.id;
+  }
+
+  extractId(url: string) {
+    let id = url.split('/').filter(part => part !== '').pop();
+    return id;
   }
 }
