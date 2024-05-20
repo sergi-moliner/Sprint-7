@@ -4,20 +4,26 @@
       <img src="assets/imgs/star-wars-2.svg" class="d-inline-block align-text-top img" alt="Logo">
     </div>
     <div class="d-flex">
-      <a class="nav-link" href="#">LOGIN</a>
-      <p class="text-dark mt-2">//</p>
-      <a class="nav-link" href="#">SIGNUP</a>
+      @if (currentUser) {
+        <span class="nav-link">Bienvenido, {{ currentUser }}</span>
+        <button class="btn btn-link nav-link" (click)="logout()">Logout</button>
+      } @else {
+        <a class="nav-link" [routerLink]="['/login']">LOGIN</a>
+        <p class="text-dark mt-2">//</p>
+        <a class="nav-link" [routerLink]="['/register']">SIGNUP</a>
+        <button class="btn btn-link nav-link" (click)="logout()">Logout</button>
+      }
     </div>
   </nav>
   <div class="d-flex align-items-center justify-content-center custom-div">
-    @for(section of sections; track section){
-      @if(section === 'HOME'){
+    @for(section of sections; track section) {
+      @if (section === 'HOME') {
         <li class="nav-link link-a" [routerLink]="['/home']" [class.active]="section === activeSection" (click)="setActiveSection('HOME')">{{ section }}</li>
       }
-      @if(section === 'STARSHIPS'){
+      @if (section === 'STARSHIPS') {
         <li class="nav-link link-b" [routerLink]="['/starships']" [class.active]="section === activeSection" (click)="setActiveSection('STARSHIPS')">{{ section }}</li>
       }
-      }
+    }
   </div>
   <div>
     <router-outlet></router-outlet>

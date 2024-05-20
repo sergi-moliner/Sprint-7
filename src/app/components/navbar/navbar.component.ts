@@ -1,26 +1,37 @@
 import { Component, OnInit } from '@angular/core';
 import { AsyncPipe } from '@angular/common';
-import { StarshipsListComponent } from '../starships-list/starships-list.component';
 import { RouterOutlet, RouterModule } from '@angular/router';
+import { AuthService } from '../services/auth.service';
+import { UserService } from '../services/user.service';
 
 @Component({
   selector: 'app-navbar',
   standalone: true,
-  imports: [AsyncPipe, StarshipsListComponent, RouterOutlet, RouterModule],
+  imports: [AsyncPipe, RouterOutlet, RouterModule],
   templateUrl: './navbar.component.html',
-  styleUrl: './navbar.component.scss'
+  styleUrls: ['./navbar.component.scss']
 })
-export class NavbarComponent implements OnInit{
-
+export class NavbarComponent implements OnInit {
+  currentUser: string | null = null;
   sections = ['HOME', 'STARSHIPS'];
-  activeSection : string = '';
+  activeSection: string = '';
 
-  setActiveSection(section: string) {
+  constructor(
+    private authService: AuthService,
+    private userService: UserService
+  ) {}
+
+  ngOnInit(): void {
+    this.currentUser = this.userService.getFullName();
+    console.log(this.currentUser);
+  }
+
+  logout(): void {
+    this.authService.logout();
+  }
+
+  setActiveSection(section: string): void {
     this.activeSection = section;
   }
-
-  ngOnInit() {
-    this.activeSection = this.sections[0];
-  }
-
 }
+

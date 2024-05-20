@@ -1,0 +1,32 @@
+<div class="auth-container">
+  <h2>Login</h2>
+  <form [formGroup]="loginForm" (ngSubmit)="login()" novalidate>
+    <div class="form-group mt-3 mb-4">
+      <input
+        type="email"
+        formControlName="email"
+        class="form-control my-2 py-4 costum-input border-0"
+        placeholder="Email"
+      />
+      <div class="text-danger mt-1" [hidden]="loginForm.controls['email'].valid || loginForm.controls['email'].pristine">
+        <small>@if(loginForm.controls['email'].errors?.['required']){ Email is required }</small>
+        <small>@if(loginForm.controls['email'].errors?.['email']){ Please enter a valid email address }</small>
+      </div>
+    </div>
+
+    <div class="form-group mt-3 mb-4">
+      <input
+        type="password"
+        formControlName="password"
+        class="form-control my-2 py-4 costum-input border-0"
+        placeholder="Password"
+      />
+      <div class="text-danger mt-1" [hidden]="loginForm.controls['password'].valid || loginForm.controls['password'].pristine">
+        <small>@if(loginForm.controls['password'].errors?.['required']){ Password is required }</small>
+        <small>@if(loginForm.controls['password'].errors?.['minlength']){ Password must be at least 6 characters long }</small>
+      </div>
+    </div>
+
+    <button type="submit" class="btn btn-primary">Login</button>
+  </form>
+</div>

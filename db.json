@@ -1,0 +1,33 @@
+{
+  "users": [
+    {
+      "email": "sergi122k@gmail.com",
+      "password": "$2a$10$CECwVIe.pjvnZK3mBqlV2OpfSCvLSBPhIphuQOlJdlJOwXP.WjqOS",
+      "id": 1
+    },
+    {
+      "email": "test@test.com",
+      "password": "$2a$10$0Fxon.sbiYamt/ed35Zp3OOBmvM5FAHTet.mGZQG2cuzAJqgjnLzG",
+      "id": 2
+    },
+    {
+      "email": "test1@test1.com",
+      "password": "$2a$10$9xPFXYB8/1rFFiAk7u4iHu4pdfM5Jr.QLeU0RBcFkP2fl2P/ucWfO",
+      "fullName": "test1",
+      "confirmPassword": "test-1",
+      "id": 3
+    },
+    {
+      "email": "test2@test2.com",
+      "password": "$2a$10$dSWws/wI6Gv9x74p/mcK4eF3foPJDox7f5OSntowjFCVr5OwyQi02",
+      "fullName": "test2",
+      "id": 4
+    },
+    {
+      "email": "test3@test3.com",
+      "password": "$2a$10$LNtsJZcgqjY4WY3dXdDzlewCo9KdqRnfFt/pTyYY.3zgrI7n2UXQq",
+      "fullName": "test3",
+      "id": 5
+    }
+  ]
+}
