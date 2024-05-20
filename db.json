@@ -28,6 +28,37 @@
       "password": "$2a$10$LNtsJZcgqjY4WY3dXdDzlewCo9KdqRnfFt/pTyYY.3zgrI7n2UXQq",
       "fullName": "test3",
       "id": 5
+    },
+    {
+      "email": "test5@test5.com",
+      "password": "$2a$10$NFobd6R0rUMo2pODmEK3iuIfu78GIThYCgJtP26fKAmKd26CuQ9TC",
+      "fullName": "Test User",
+      "id": 6
+    },
+    {
+      "email": "test4@test.com",
+      "password": "$2a$10$AIT.Zj3ulE7rWxuDD9nghud.qu2c9aDzPuD2EXVAjPOQMghAyKbwG",
+      "fullName": "Test User",
+      "id": 7
+    },
+    {
+      "email": "test6@test.com",
+      "password": "$2a$10$/FaZ06rx1zSR51iEUhBMaODdmHrJR7fXQDsBdlR64eEEwO2wr8GEe",
+      "fullName": "test6",
+      "id": 8
+    },
+    {
+      "email": "test7@test.com",
+      "password": "$2a$10$PDis5uKVX15URkp7F.9kr.8tWrtQwAyskUu/wKNygjtyvttYb8//W",
+      "fullName": "test7",
+      "id": 9
+    },
+    {
+      "email": "test8@test.com",
+      "password": "$2a$10$YqZOFyxSiqYRSckFihaCb.jsCceRTiqeS12hDuIUZDpcXKwWBPd3u",
+      "confirmPassword": "pass123",
+      "fullName": "test8",
+      "id": 10
     }
   ]
 }

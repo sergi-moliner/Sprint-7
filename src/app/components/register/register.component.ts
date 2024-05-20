@@ -13,30 +13,26 @@ import { ReactiveFormsModule, FormBuilder, FormGroup, Validators } from '@angula
 export class RegisterComponent {
   registerForm: FormGroup;
 
-  constructor(
-    private formBuilder: FormBuilder,
-    private authService: AuthService,
-    private router: Router
-  ) {
-    this.registerForm = this.formBuilder.group({
-      fullName: ['', Validators.required],
+  constructor(private authService: AuthService, private fb: FormBuilder) {
+    this.registerForm = this.fb.group({
       email: ['', [Validators.required, Validators.email]],
       password: ['', [Validators.required, Validators.minLength(6)]],
-      confirmPassword: ['', Validators.required]
+      confirmPassword: ['', [Validators.required]],
+      fullName: ['', Validators.required]
     }, { validator: this.passwordMatchValidator });
   }
 
-  passwordMatchValidator(group: FormGroup): any {
-    const password = group.get('password')?.value;
-    const confirmPassword = group.get('confirmPassword')?.value;
-    return password === confirmPassword ? null : { passwordMismatch: true };
+  passwordMatchValidator(form: FormGroup) {
+    const password = form.get('password');
+    const confirmPassword = form.get('confirmPassword');
+    return password && confirmPassword && password.value === confirmPassword.value ? null : { 'mismatch': true };
   }
 
   register(): void {
     if (this.registerForm.valid) {
-      const { fullName, email, password } = this.registerForm.value;
-      this.authService.register({ fullName, email, password }).subscribe(() => {
-        this.router.navigate(['/']);
+      this.authService.register(this.registerForm.value).subscribe({
+        next: () => console.log('Registration successful'),
+        error: (err) => alert(err.error.error)
       });
     }
   }

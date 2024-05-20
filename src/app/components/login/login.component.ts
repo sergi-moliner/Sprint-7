@@ -13,12 +13,8 @@ import { ReactiveFormsModule, FormBuilder, FormGroup, Validators } from '@angula
 export class LoginComponent {
   loginForm: FormGroup;
 
-  constructor(
-    private formBuilder: FormBuilder,
-    private authService: AuthService,
-    private router: Router
-  ) {
-    this.loginForm = this.formBuilder.group({
+  constructor(private authService: AuthService, private fb: FormBuilder) {
+    this.loginForm = this.fb.group({
       email: ['', [Validators.required, Validators.email]],
       password: ['', [Validators.required, Validators.minLength(6)]]
     });
@@ -26,9 +22,9 @@ export class LoginComponent {
 
   login(): void {
     if (this.loginForm.valid) {
-      const { email, password } = this.loginForm.value;
-      this.authService.login({ email, password }).subscribe(() => {
-        this.router.navigate(['/']);
+      this.authService.login(this.loginForm.value).subscribe({
+        next: () => console.log('Login successful'),
+        error: (err) => alert(err.error.error)
       });
     }
   }

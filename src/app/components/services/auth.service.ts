@@ -22,6 +22,7 @@ export class AuthService {
       tap((res: any) => {
         this.setToken(res.accessToken);
         this.userService.setFullName(user.fullName);
+        this.router.navigate(['/starships']); // Redirigir a /starships después del registro
       })
     );
   }
@@ -30,12 +31,13 @@ export class AuthService {
     return this.http.post(`${this.baseUrl}/login`, credentials).pipe(
       tap((res: any) => {
         this.setToken(res.accessToken);
-        const userFullName = res.fullName;
+        const userFullName = res.user.fullName;  // Extraer el fullName de res.user
         if (userFullName) {
           this.userService.setFullName(userFullName);
         } else {
           this.userService.setFullName(null);
         }
+        this.router.navigate(['/starships']); // Redirigir a /starships después del login
       })
     );
   }

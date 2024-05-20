@@ -8,6 +8,18 @@ server.db = router.db;
 
 server.use(middlewares);
 
+server.post('/login', (req, res, next) => {
+  const { email, password } = req.body;
+  const user = server.db.get('users').find({ email }).value();
+
+  if (user && user.password === password) {
+    const token = auth.createToken(user);
+    res.jsonp({ accessToken: token, fullName: user.fullName });
+  } else {
+    res.status(401).jsonp({ error: 'Invalid credentials' });
+  }
+});
+
 server.use(auth);
 server.use(router);
 
