@@ -6,14 +6,12 @@ import { StarshipResults } from '../../core/interfaces/starship';
 import { StarshipInfoComponent } from '../starship-info/starship-info.component';
 import { ErrorMessageComponent } from '../error-message/error-message.component';
 import { InfiniteScrollModule } from 'ngx-infinite-scroll';
-import { StarshipDetailComponent } from '../starship-detail/starship-detail.component';
 import { RouterModule, RouterLink } from '@angular/router';
-import { Starship } from '../../core/interfaces/starship';
 
 @Component({
   selector: 'app-starships-list',
   standalone: true,
-  imports: [AsyncPipe, RouterModule, RouterLink, StarshipInfoComponent, ErrorMessageComponent, InfiniteScrollModule, CommonModule, StarshipDetailComponent],
+  imports: [AsyncPipe, RouterModule, RouterLink, StarshipInfoComponent, ErrorMessageComponent, InfiniteScrollModule, CommonModule],
   templateUrl: './starships-list.component.html',
   styleUrl: './starships-list.component.scss'
 })
@@ -22,10 +20,7 @@ export class StarshipsListComponent implements OnInit {
   public errorMessage!: string;
   public currentPage: number = 1;
   public loading: boolean = false;
-  public starshipArray: string[] = [];
-  public starshipInfo: StarshipResults | undefined;
   showButton: boolean = true;
-  selectedStarship: Starship = {} as Starship;
 
   constructor(private starshipsService: StarshipsService) { }
 
@@ -62,10 +57,6 @@ export class StarshipsListComponent implements OnInit {
       this.showButton = false;
       return;
     }
-  }
-
-  trackByFn(index: number, item: any): number {
-    return item.id;
   }
 
   extractId(url: string) {

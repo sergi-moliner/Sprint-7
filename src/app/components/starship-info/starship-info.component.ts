@@ -1,14 +1,12 @@
-import { Component, Input } from '@angular/core';
+import { Component } from '@angular/core';
 import { Starship } from '../../core/interfaces/starship';
 import { RouterModule, RouterLink } from '@angular/router';
 import { StarshipsListComponent } from '../starships-list/starships-list.component';
-import { StarshipResults } from '../../core/interfaces/starship';
 import { Observable } from 'rxjs';
 import { ActivatedRoute } from '@angular/router';
 import { switchMap } from 'rxjs/operators';
 import { StarshipsService } from '../services/starships.service';
 import { CommonModule } from '@angular/common';
-
 
 @Component({
   selector: 'app-starship-info',
