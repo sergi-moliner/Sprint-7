@@ -17,7 +17,7 @@ To get started with the project, follow these steps:
 1. **Clone the repository:**
 
     ```bash
-    git clone https://github.com/yourusername/star-wars-app.git
+    git clone https://github.com/sergi-moliner/Sprint-7
     cd star-wars-app
     ```
 
@@ -80,14 +80,6 @@ To get started with the project, follow these steps:
 - **Backend:**
   - JSON Server
   - json-server-auth
-
-## Contributing 🤝
-
-Contributions are welcome! Please fork the repository and submit a pull request for any features, bug fixes, or enhancements.
-
-## License 📄
-
-This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
 
 ---
 
