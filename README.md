@@ -17,7 +17,7 @@ To get started with the project, follow these steps:
 1. **Clone the repository:**
 
     ```bash
-    git clone https://github.com/yourusername/star-wars-app.git
+    git clone https://github.com/sergi-moliner/Sprint-7
     cd star-wars-app
     ```
 
