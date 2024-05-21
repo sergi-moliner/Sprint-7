@@ -81,14 +81,6 @@ To get started with the project, follow these steps:
   - JSON Server
   - json-server-auth
 
-## Contributing 🤝
-
-Contributions are welcome! Please fork the repository and submit a pull request for any features, bug fixes, or enhancements.
-
-## License 📄
-
-This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
-
 ---
 
 Enjoy exploring the Star Wars universe! 🌌✨
