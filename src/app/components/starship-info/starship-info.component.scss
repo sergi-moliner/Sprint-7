@@ -1,7 +1,9 @@
 $text-color: rgb(168, 168, 168);
 $border-color: rgb(128, 128, 128);
+$border-cards: rgb(179, 28, 28);
 
 .container-fluid {
+  width: 85%;
   .custom-titles {
     margin-top: 5rem;
     border-top: 1px solid $border-color;
@@ -23,10 +25,7 @@ $border-color: rgb(128, 128, 128);
     display: flex;
     flex-wrap: wrap;
     margin-top: 2rem;
-    background-color: #f8f9fa;
     border-radius: 1rem;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    overflow: hidden;
 
     img {
       width: 60%;
@@ -39,7 +38,7 @@ $border-color: rgb(128, 128, 128);
       width: 40%;
       padding: 1.5rem;
       background-color: #1d1d1d;
-      border-left: 1.5px solid rgb(179, 28, 28);
+      border-left: 1.5px solid $border-cards;
 
       p {
         margin-bottom: 0.5rem;
@@ -79,7 +78,7 @@ $border-color: rgb(128, 128, 128);
       img {
         width: 100%;
         border-right: none;
-        border-bottom: 1.5px solid rgb(179, 28, 28);
+        border-bottom: 1.5px solid $border-cards;
       }
 
       .starship-details {

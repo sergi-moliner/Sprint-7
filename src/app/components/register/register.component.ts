@@ -12,6 +12,8 @@ import { ReactiveFormsModule, FormBuilder, FormGroup, Validators } from '@angula
 })
 export class RegisterComponent {
   registerForm: FormGroup;
+  submitted = false;
+  errorMessage = '';
 
   constructor(private authService: AuthService, private fb: FormBuilder) {
     this.registerForm = this.fb.group({
@@ -29,11 +31,18 @@ export class RegisterComponent {
   }
 
   register(): void {
+    this.submitted = true;
     if (this.registerForm.valid) {
-      this.authService.register(this.registerForm.value).subscribe({
+      const { confirmPassword, ...registerData } = this.registerForm.value;
+      this.authService.register(registerData).subscribe({
         next: () => console.log('Registration successful'),
-        error: (err) => alert(err.error.error)
+        error: (err) => {
+          this.errorMessage = err.error.error;
+          this.submitted = false;
+        }
       });
+    } else {
+      this.errorMessage = 'Please fill out the form correctly.';
     }
   }
 }

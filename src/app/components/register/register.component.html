@@ -1,6 +1,12 @@
 <div class="auth-container">
   <h2>REGISTER</h2>
   <form [formGroup]="registerForm" (ngSubmit)="register()" novalidate>
+    @if (submitted && registerForm.errors) {
+      <div class="alert alert-danger">
+        {{ errorMessage }}
+      </div>
+    }
+
     <div class="form-group mt-3 mb-4">
       <input
         type="text"
@@ -8,9 +14,11 @@
         class="form-control my-2 py-4 costum-input border-0"
         placeholder="Full Name"
       />
-      <div class="text-danger mt-1" [hidden]="registerForm.controls['fullName'].valid || registerForm.controls['fullName'].pristine">
-        <small>@if(registerForm.controls['fullName'].errors?.['required']){ Full Name is required }</small>
-      </div>
+      @if (registerForm.controls['fullName'].invalid && (registerForm.controls['fullName'].dirty || registerForm.controls['fullName'].touched)) {
+        <div class="text-danger mt-1">
+          <small>@if (registerForm.controls['fullName'].errors?.['required']) { Full Name is required }</small>
+        </div>
+      }
     </div>
 
     <div class="form-group mt-3 mb-4">
@@ -20,10 +28,12 @@
         class="form-control my-2 py-4 costum-input border-0"
         placeholder="Email"
       />
-      <div class="text-danger mt-1" [hidden]="registerForm.controls['email'].valid || registerForm.controls['email'].pristine">
-        <small>@if(registerForm.controls['email'].errors?.['required']){ Email is required }</small>
-        <small>@if(registerForm.controls['email'].errors?.['email']){ Please enter a valid email address }</small>
-      </div>
+      @if (registerForm.controls['email'].invalid && (registerForm.controls['email'].dirty || registerForm.controls['email'].touched)) {
+        <div class="text-danger mt-1">
+          <small>@if (registerForm.controls['email'].errors?.['required']) { Email is required }</small>
+          <small>@if (registerForm.controls['email'].errors?.['email']) { Please enter a valid email address }</small>
+        </div>
+      }
     </div>
 
     <div class="form-group mt-3 mb-4">
@@ -33,10 +43,12 @@
         class="form-control my-2 py-4 costum-input border-0"
         placeholder="Create password"
       />
-      <div class="text-danger mt-1" [hidden]="registerForm.controls['password'].valid || registerForm.controls['password'].pristine">
-        <small>@if(registerForm.controls['password'].errors?.['required']){ Password is required }</small>
-        <small>@if(registerForm.controls['password'].errors?.['minlength']){ Password must be at least 6 characters long }</small>
-      </div>
+      @if (registerForm.controls['password'].invalid && (registerForm.controls['password'].dirty || registerForm.controls['password'].touched)) {
+        <div class="text-danger mt-1">
+          <small>@if (registerForm.controls['password'].errors?.['required']) { Password is required }</small>
+          <small>@if (registerForm.controls['password'].errors?.['minlength']) { Password must be at least 6 characters long }</small>
+        </div>
+      }
     </div>
 
     <div class="form-group mt-3 mb-4">
@@ -46,10 +58,12 @@
         class="form-control my-2 py-4 costum-input border-0"
         placeholder="Confirm password"
       />
-      <div class="text-danger mt-1" [hidden]="!registerForm.controls['confirmPassword'].touched">
-        <small>@if(registerForm.controls['confirmPassword'].errors?.['required']){ Confirm the password }</small>
-        <small>@if(registerForm.errors?.['passwordMismatch'] && registerForm.controls['confirmPassword'].valid && registerForm.controls['password'].valid){ Passwords should match }</small>
-      </div>
+      @if (registerForm.controls['confirmPassword'].invalid && (registerForm.controls['confirmPassword'].dirty || registerForm.controls['confirmPassword'].touched)) {
+        <div class="text-danger mt-1">
+          <small>@if (registerForm.errors?.['mismatch']) { Passwords should match }</small>
+          <small>@if (registerForm.controls['confirmPassword'].errors?.['required']) { Confirm the password }</small>
+        </div>
+      }
     </div>
 
     <button type="submit" class="btn btn-primary">REGISTER</button>

@@ -2,11 +2,12 @@ import { Component, OnInit } from '@angular/core';
 import { RouterOutlet, RouterModule } from '@angular/router';
 import { AuthService } from '../services/auth.service';
 import { UserService } from '../services/user.service';
+import { StarBackgroundComponent } from '../star-background/star-background.component';
 
 @Component({
   selector: 'app-navbar',
   standalone: true,
-  imports: [RouterOutlet, RouterModule],
+  imports: [RouterOutlet, RouterModule, StarBackgroundComponent],
   templateUrl: './navbar.component.html',
   styleUrls: ['./navbar.component.scss']
 })
@@ -26,7 +27,6 @@ export class NavbarComponent implements OnInit {
       console.log('User:', user);
     });
 
-    // Obtener el fullName al inicializar el componente
     this.currentUser = this.userService.getFullNameFromLocalStorage();
   }
 
