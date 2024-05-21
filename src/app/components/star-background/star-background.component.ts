@@ -4,7 +4,7 @@ import { Component, OnInit, Renderer2 } from '@angular/core';
   selector: 'app-star-background',
   standalone: true,
   imports: [],
-  template: '<div id="starfield"></div><div id="starfield2"></div>',
+  template: '<div id="starfield"></div>',
   styleUrl: './star-background.component.scss'
 })
 export class StarBackgroundComponent implements OnInit {

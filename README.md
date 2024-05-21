@@ -1,27 +1,94 @@
-# StarWars
+# Star Wars App 🚀✨
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 17.3.4.
+Welcome to the Star Wars App! This project is an Angular application that provides information about various Star Wars starships, including details about their pilots and the films in which they appear. This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 17.3.4.
 
-## Development server
+## Features 🌟
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
+- View details of different starships.
+- See information about the pilots of each starship.
+- Check out the films in which the starships have appeared.
+- User registration and login functionality.
+- JWT authentication and protected routes.
 
-## Code scaffolding
+## Installation 🛠️
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+To get started with the project, follow these steps:
 
-## Build
+1. **Clone the repository:**
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
+    ```bash
+    git clone https://github.com/yourusername/star-wars-app.git
+    cd star-wars-app
+    ```
 
-## Running unit tests
+2. **Install dependencies:**
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+    ```bash
+    npm install
+    ```
 
-## Running end-to-end tests
+3. **Start the Angular development server:**
 
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
+    ```bash
+    ng serve
+    ```
 
-## Further help
+    The app should now be running on `http://localhost:4200`.
 
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+
+4. **Start the JSON server:**
+
+    ```bash
+    node server.js
+    ```
+
+    The JSON server should now be running on `http://localhost:3000`.
+
+## Project Structure 📂
+
+- `src/`: Contains the Angular application code.
+  - `app/`: Main app directory with components, services, and other core files.
+  - `assets/`: Contains images and other static assets.
+  - `environments/`: Configuration for different environments.
+- `backend/`: Contains the JSON server setup files.
+  - `db.json`: Database file for the JSON server.
+  - `server.js`: Server setup file for JSON server with JWT authentication.
+
+## Usage 📖
+
+1. **Registration:**
+   - Navigate to the registration page and fill out the form to create a new user.
+   - Upon successful registration, you will be redirected to the starships page.
+
+2. **Login:**
+   - Navigate to the login page and enter your credentials.
+   - If the login is successful, you will be redirected to the starships page.
+   - If the credentials are invalid, an error message will be displayed.
+
+3. **Starships:**
+   - View the list of starships and click on any starship to see more details.
+   - The starship details page will show information about the starship, its pilots, and the films it appears in.
+
+## Technologies Used 💻
+
+- **Frontend:**
+  - Angular
+  - TypeScript
+  - SCSS
+  - Bootstrap
+
+- **Backend:**
+  - JSON Server
+  - json-server-auth
+
+## Contributing 🤝
+
+Contributions are welcome! Please fork the repository and submit a pull request for any features, bug fixes, or enhancements.
+
+## License 📄
+
+This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
+
+---
+
+Enjoy exploring the Star Wars universe! 🌌✨

@@ -2,9 +2,6 @@ import { Component } from '@angular/core';
 import { Film } from '../../core/interfaces/film';
 import { Input } from '@angular/core';
 
-
-
-
 @Component({
   selector: 'app-film-card',
   standalone: true,
