@@ -1,28 +1,48 @@
 <div class="container-fluid">
   <div class="custom-div mt-5">
-    <h4>STARSHIP</h4>
+    <h4 class="custom-titles pb-2 pt-2">STARSHIP</h4>
   </div>
-  @if(starship$ | async; as starship){
-  <h2>{{ starship.name.toUpperCase() }}</h2>
-  <div class="starship-card">
-    <img [src]="imgURL" alt="{{starship.name}}" class="img-fluid" (error)="imageError()">
-    <div class="starship-details">
-      <p>Model: {{starship.model}}</p>
-      <p>Manufacturer: {{starship.manufacturer}}</p>
-      <p>Cost in credits: {{starship.cost_in_credits}}</p>
-      <p>Length: {{starship.length}}</p>
-      <p>Max atmosphering speed: {{starship.max_atmosphering_speed}}</p>
-      <p>Crew: {{starship.crew}}</p>
-      <p>Passengers: {{starship.passengers}}</p>
-      <p>Cargo capacity: {{starship.cargo_capacity}}</p>
-      <p>Consumables: {{starship.consumables}}</p>
-      <p>Hyperdrive rating: {{starship.hyperdrive_rating}}</p>
-      <p>MGLT: {{starship.MGLT}}</p>
-      <p>Starship class: {{starship.starship_class}}</p>
-      <p>Created: {{starship.created}}</p>
-      <p>Edited: {{starship.edited}}</p>
-      <p>URL: {{starship.url}}</p>
+  @if (starship$ | async; as starship) {
+    <h2>{{ starship.name.toUpperCase() }}</h2>
+    <div class="starship-card">
+      <img [src]="imgURL" alt="{{ starship.name }}" class="img-fluid" (error)="imageError()">
+      <div class="starship-details">
+        <p>Model: {{ starship.model }}</p>
+        <p>Manufacturer: {{ starship.manufacturer }}</p>
+        <p>Cost in credits: {{ starship.cost_in_credits }}</p>
+        <p>Length: {{ starship.length }}</p>
+        <p>Max atmosphering speed: {{ starship.max_atmosphering_speed }}</p>
+        <p>Crew: {{ starship.crew }}</p>
+        <p>Passengers: {{ starship.passengers }}</p>
+        <p>Cargo capacity: {{ starship.cargo_capacity }}</p>
+        <p>Consumables: {{ starship.consumables }}</p>
+        <p>Hyperdrive rating: {{ starship.hyperdrive_rating }}</p>
+        <p>MGLT: {{ starship.MGLT }}</p>
+        <p>Starship class: {{ starship.starship_class }}</p>
+        <p>Created: {{ starship.created }}</p>
+        <p>Edited: {{ starship.edited }}</p>
+        <p>URL: {{ starship.url }}</p>
+      </div>
     </div>
-  </div>
+    <div class="pilots-section">
+      <h4 class="custom-titles pb-2 pt-2">PILOTS</h4>
+      <div class="pilots-list">
+        @if (pilots$ | async; as pilots) {
+          @for (pilot of pilots; track pilot.name) {
+            <app-pilot-card [pilot]="pilot"></app-pilot-card>
+          }
+        }
+      </div>
+    </div>
+    <div class="films-section">
+      <h4 class="custom-titles pb-2 pt-2">FILMS</h4>
+      <div class="films-list">
+        @if (films$ | async; as films) {
+          @for (film of films; track film.title) {
+            <app-film-card [film]="film"></app-film-card>
+          }
+        }
+      </div>
+    </div>
   }
 </div>

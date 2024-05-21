@@ -2,7 +2,7 @@ $text-color: rgb(168, 168, 168);
 $border-color: rgb(128, 128, 128);
 
 .container-fluid {
-  .custom-div {
+  .custom-titles {
     margin-top: 5rem;
     border-top: 1px solid $border-color;
     border-bottom: 1px solid $border-color;
@@ -24,19 +24,19 @@ $border-color: rgb(128, 128, 128);
     flex-wrap: wrap;
     margin-top: 2rem;
     background-color: #f8f9fa;
-    border-radius: 0.5rem;
+    border-radius: 1rem;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     overflow: hidden;
 
     img {
-      width: 40%;
+      width: 60%;
       height: auto;
       object-fit: cover;
       border-right: 1px solid #3b3b3b;
     }
 
     .starship-details {
-      width: 60%;
+      width: 40%;
       padding: 1.5rem;
       background-color: #1d1d1d;
       border-left: 1.5px solid rgb(179, 28, 28);
@@ -54,6 +54,24 @@ $border-color: rgb(128, 128, 128);
     }
   }
 
+  .pilots-section,
+  .films-section {
+    margin-top: 2rem;
+
+    h4 {
+      font-size: 1.2rem;
+      font-weight: bold;
+      margin-bottom: 1rem;
+    }
+
+    .pilots-list,
+    .films-list {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: left;
+    }
+  }
+
   @media (max-width: 768px) {
     .starship-card {
       flex-direction: column;
@@ -61,11 +79,22 @@ $border-color: rgb(128, 128, 128);
       img {
         width: 100%;
         border-right: none;
-        border-bottom: 1px solid #e0e0e0;
+        border-bottom: 1.5px solid rgb(179, 28, 28);
       }
 
       .starship-details {
         width: 100%;
+        border-left: none;
+      }
+    }
+
+    .films-section,
+    .pilots-section {
+      .films-list,
+      .pilots-list {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
       }
     }
   }
