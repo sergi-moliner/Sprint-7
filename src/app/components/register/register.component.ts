@@ -1,6 +1,5 @@
 import { Component } from '@angular/core';
 import { AuthService } from '../services/auth.service';
-import { Router } from '@angular/router';
 import { ReactiveFormsModule, FormBuilder, FormGroup, Validators } from '@angular/forms';
 
 @Component({
@@ -32,17 +31,19 @@ export class RegisterComponent {
 
   register(): void {
     this.submitted = true;
-    if (this.registerForm.valid) {
-      const { confirmPassword, ...registerData } = this.registerForm.value;
-      this.authService.register(registerData).subscribe({
-        next: () => console.log('Registration successful'),
-        error: (err) => {
-          this.errorMessage = err.error.error;
-          this.submitted = false;
-        }
-      });
-    } else {
+    if (this.registerForm.invalid) {
+      this.registerForm.markAllAsTouched();
       this.errorMessage = 'Please fill out the form correctly.';
+      return;
     }
+
+    const { confirmPassword, ...registerData } = this.registerForm.value;
+    this.authService.register(registerData).subscribe({
+      next: () => console.log('Registration successful'),
+      error: (err) => {
+        this.errorMessage = err.error.error;
+        this.submitted = false;
+      }
+    });
   }
 }

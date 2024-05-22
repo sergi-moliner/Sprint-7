@@ -1,7 +1,7 @@
 <div class="auth-container">
   <h2>REGISTER</h2>
   <form [formGroup]="registerForm" (ngSubmit)="register()" novalidate>
-    @if (submitted && registerForm.errors) {
+    @if (submitted && errorMessage) {
       <div class="alert alert-danger">
         {{ errorMessage }}
       </div>
