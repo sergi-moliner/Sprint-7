@@ -1,6 +1,12 @@
 <div class="home-container">
-  <div class="buttons-container">
-    <button [routerLink]="['/login']" class="star-wars-button">LOGIN</button>
-    <button [routerLink]="['/register']"  class="star-wars-button">REGISTER</button>
-  </div>
+  @if (!isLoggedIn) {
+    <div class="buttons-container">
+      <button [routerLink]="['/login']" class="star-wars-button">LOGIN</button>
+      <button [routerLink]="['/register']" class="star-wars-button">REGISTER</button>
+    </div>
+  } @else {
+    <div class="welcome-message">
+      <h2>Welcome back, {{ currentUser }}!</h2>
+    </div>
+  }
 </div>

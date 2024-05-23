@@ -24,7 +24,6 @@ export class NavbarComponent implements OnInit {
   ngOnInit(): void {
     this.userService.currentUser.subscribe(user => {
       this.currentUser = user;
-      console.log('User:', user);
     });
 
     this.currentUser = this.userService.getFullNameFromLocalStorage();
